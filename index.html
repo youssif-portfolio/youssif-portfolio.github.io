@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youssif Hisham — Data Analyst & Analytics Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #141414;
+    --mid: #2a2a2a;
+    --grey: #6b6b6b;
+    --light-grey: #c8c8c8;
+    --off-white: #f5f3ef;
+    --white: #ffffff;
+    --accent: #2563d4;
+    --accent-light: #dce8ff;
+    --border: #e2e0db;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--grey);
+    font-size: 0.875rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    background: var(--black); color: var(--white);
+    padding: 0.5rem 1.25rem; border-radius: 6px;
+    text-decoration: none; font-size: 0.875rem; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 5% 80px;
+    background: var(--off-white);
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(37,99,212,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    max-width: 1200px; margin: 0 auto; width: 100%;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--white); border: 1px solid var(--border);
+    padding: 0.35rem 0.85rem; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 500; color: var(--grey);
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: block; }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--grey);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--black); color: var(--white);
+    padding: 0.85rem 1.75rem; border-radius: 8px;
+    text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--black);
+    padding: 0.85rem 1.75rem; border-radius: 8px;
+    text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    border: 1.5px solid var(--black);
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { background: var(--black); color: var(--white); }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.04);
+  }
+  .stat-card { padding: 1.25rem; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-num sup { font-size: 1.2rem; color: var(--accent); }
+  .stat-label { font-size: 0.8rem; color: var(--grey); font-weight: 500; }
+  .stat-card:nth-child(1) { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+  .stat-card:nth-child(2) { border-bottom: 1px solid var(--border); }
+  .stat-card:nth-child(3) { border-right: 1px solid var(--border); }
+
+  /* ── SECTIONS ── */
+  section { padding: 96px 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+  .section-desc { font-size: 1rem; color: var(--grey); max-width: 560px; line-height: 1.7; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { color: var(--grey); line-height: 1.8; margin-bottom: 1rem; }
+  .about-text p strong { color: var(--black); font-weight: 600; }
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .highlight-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--off-white);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+  }
+  .highlight-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .highlight-item p { font-size: 0.875rem; color: var(--grey); line-height: 1.6; margin: 0; }
+  .highlight-item strong { color: var(--black); display: block; margin-bottom: 0.2rem; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--off-white); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .service-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--accent); opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 1rem; font-weight: 600; color: var(--black); margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.85rem; color: var(--grey); line-height: 1.6; }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--white); }
+  .portfolio-header { margin-bottom: 3rem; }
+  .case-studies { display: flex; flex-direction: column; gap: 2rem; }
+  .case-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.25s;
+  }
+  .case-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+  .case-header {
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: start; gap: 1rem;
+    padding: 2rem 2rem 0;
+  }
+  .case-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem; color: var(--border);
+    line-height: 1;
+  }
+  .case-badge {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+  .case-body { padding: 0 2rem 2rem; }
+  .case-body h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--black); }
+  .case-body .case-sub { font-size: 0.85rem; color: var(--grey); margin-bottom: 1.5rem; font-style: italic; }
+  .case-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 1.5rem; }
+  .case-detail { background: var(--white); padding: 1rem; }
+  .case-detail label { display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--light-grey); margin-bottom: 0.4rem; }
+  .case-detail p { font-size: 0.82rem; color: var(--grey); line-height: 1.5; }
+  .case-impact {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .impact-icon { font-size: 1.25rem; flex-shrink: 0; }
+  .case-impact h4 { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey); margin-bottom: 0.3rem; }
+  .case-impact p { font-size: 0.875rem; color: rgba(255,255,255,0.85); line-height: 1.6; }
+  .tools-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+  .tool-chip {
+    font-size: 0.75rem; font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--grey);
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--off-white); }
+  .exp-timeline { display: flex; flex-direction: column; margin-top: 3rem; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 32px 1fr;
+    gap: 0;
+    padding-bottom: 3rem;
+  }
+  .exp-item:last-child { padding-bottom: 0; }
+
+  /* left: date + org */
+  .exp-meta { text-align: right; padding-right: 1.25rem; padding-top: 2px; }
+  .exp-date { font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 0.25rem; }
+  .exp-org { font-size: 0.8rem; color: var(--grey); font-weight: 500; }
+
+  /* middle: dot + line */
+  .exp-divider {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .exp-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--off-white); border: 2px solid var(--accent);
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .exp-line {
+    width: 1px; background: var(--border);
+    flex: 1; margin-top: 4px;
+  }
+  .exp-item:last-child .exp-line { display: none; }
+
+  /* right: content */
+  .exp-content { padding-left: 1.25rem; }
+  .exp-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--black); margin-bottom: 0.75rem; }
+  .exp-content p { font-size: 0.875rem; color: var(--grey); line-height: 1.7; margin-bottom: 0.5rem; }
+  .exp-achievements { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.75rem; }
+  .exp-achievements li { font-size: 0.85rem; color: var(--grey); padding-left: 1.25rem; position: relative; }
+  .exp-achievements li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--white); }
+  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .skill-group {
+    padding: 1.5rem;
+    background: var(--off-white);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .skill-group h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 1rem; }
+  .skill-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .skill-item { font-size: 0.85rem; color: var(--grey); display: flex; align-items: center; gap: 0.5rem; }
+  .skill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--light-grey); flex-shrink: 0; }
+  .skill-item strong { color: var(--black); font-weight: 500; }
+
+  /* ── WORK WITH ME ── */
+  #work-with-me { background: var(--black); color: var(--white); }
+  #work-with-me .section-tag { color: rgba(255,255,255,0.4); }
+  #work-with-me h2 { color: var(--white); }
+  .wwm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .wwm-desc { font-size: 1.05rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-top: 1rem; }
+  .engagement-types { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .engagement-item {
+    padding: 1.25rem 1.5rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+  }
+  .engagement-item h4 { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+  .engagement-item p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+  .wwm-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; }
+  .wwm-form h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--white); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.4); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 0.75rem 1rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+  .form-group textarea { height: 100px; resize: none; }
+  .form-group select option { background: var(--dark); }
+  .btn-form {
+    width: 100%; padding: 0.9rem;
+    background: var(--accent);
+    border: none; border-radius: 8px;
+    color: var(--white); font-weight: 600; font-size: 0.9rem;
+    cursor: pointer; transition: background 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 0.5rem;
+  }
+  .btn-form:hover { background: #1d52b8; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--off-white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(37,99,212,0.08); }
+  .contact-link-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--off-white); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+  .contact-link-info p { font-size: 0.72rem; color: var(--grey); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .contact-link-info span { font-size: 0.875rem; color: var(--black); font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black); color: rgba(255,255,255,0.4);
+    padding: 2rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem;
+  }
+  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--white); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testi-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    display: flex; flex-direction: column; gap: 1.25rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .testi-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .testi-top { display: flex; align-items: center; justify-content: space-between; }
+  .testi-stars { color: #f5a623; font-size: 1.1rem; letter-spacing: 2px; }
+  .testi-badge {
+    font-size: 0.72rem; font-weight: 600;
+    color: #14a800;
+    background: #e6f7e6;
+    border: 1px solid #b3e6b3;
+    padding: 0.25rem 0.65rem;
+    border-radius: 100px;
+    display: flex; align-items: center;
+  }
+  .testi-body { flex: 1; }
+  .testi-project {
+    font-size: 0.85rem; font-weight: 600;
+    color: var(--black); margin-bottom: 0.6rem;
+    font-style: italic;
+  }
+  .testi-desc { font-size: 0.85rem; color: var(--grey); line-height: 1.7; }
+  .testi-footer { display: flex; align-items: center; gap: 0.85rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .testi-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--black); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+  }
+  .testi-name { font-size: 0.875rem; font-weight: 600; color: var(--black); }
+  .testi-role { font-size: 0.75rem; color: var(--grey); margin-top: 0.1rem; }
+  .testi-country { font-size: 0.72rem; color: var(--grey); margin-top: 0.15rem; }
+  .testi-note {
+    margin-top: 2rem;
+    font-size: 0.82rem; color: var(--grey);
+    text-align: center;
+    padding: 1rem;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-grid, .about-grid, .wwm-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .case-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 520px; }
+    .exp-item { grid-template-columns: 1fr; }
+    .exp-meta { text-align: left; padding-right: 0; margin-bottom: 0.5rem; }
+    .exp-divider { display: none; }
+    .exp-content { padding-left: 0; border-left: 2px solid var(--accent); padding-left: 1rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    nav .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .case-grid { grid-template-columns: 1fr; }
+    section { padding: 64px 5%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Youssif Hisham &mdash; Portfolio</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+  <a href="#work-with-me" class="nav-cta">Work With Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-tag"><span></span> Data Analyst &amp; Analytics Engineer &mdash; Cairo, Egypt</div>
+      <h1>I build data solutions that drive <em>clearer</em> business decisions</h1>
+      <p class="hero-sub">
+        From dashboards and automated pipelines to root-cause analysis and AI-powered workflows &mdash; I help teams at startups and enterprises turn raw data into visible decisions.
+      </p>
+      <div class="hero-btns">
+        <a href="#portfolio" class="btn-primary">View Projects</a>
+        <a href="#work-with-me" class="btn-outline">Work With Me</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-num">3<sup>+</sup></div>
+          <div class="stat-label">Years in Data &amp; Analytics</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5<sup>+</sup></div>
+          <div class="stat-label">Companies Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">7<sup>+</sup></div>
+          <div class="stat-label">Business Domains Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3<sup>+</sup></div>
+          <div class="stat-label">Industries Served</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="section-tag">About Me</div>
+        <h2>A practical, business-first data professional</h2>
+        <div style="margin-top:1.5rem;">
+          <p>I'm Youssif Hisham, a Data Analyst and Analytics Engineer based in Cairo, Egypt. I hold a BSc in Computer Science &amp; Artificial Intelligence from Cairo University and a Diploma in Advanced Business Administration from AAST Egypt &mdash; a combination that shapes how I think about <strong>data as a business tool, not just a technical one</strong>.</p>
+          <p>My experience spans startups and established companies, from building  <strong>Systems & Automated Spreadsheets and AI-Powered Automated solutions</strong> to delivering C-Level executive & Operational Dashboards.</p>
+          <p>I work across the full analytics stack &mdash; from collecting your data, to serving the data and building solutions. &mdash; always with a focus on what the output means for the people making decisions.</p>
+          <p>Whether it's an early-stage startup that needs its first data infrastructure, or a mature team that wants to stop doing things manually or if you have a business question in mind <strong> we can make it happen!</strong>.</p>
+        </div>
+      </div>
+      <div>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">🤖</div>
+            <div>
+              <strong>From Spreadsheets to AI Solutions</strong>
+              <p>I've built real AI models in production &mdash; NLP pricing models, LLM-powered automations, a WhatsApp CRM bot, dashboards, automated reports, automated spreadsheets operational systems, C-Level Root Cause Analysis etc.. <strong>whatever the solution that solves the business needs.</strong></p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">⚙️</div>
+            <div>
+              <strong>End-to-End Project Ownership</strong>
+              <p>From stakeholder interviews to deployed dashboards. I've worked on data infrastructure, ETL pipelines and BI platforms &mdash; not just the final report.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">📊</div>
+            <div>
+              <strong>Multi-Domain Experience</strong>
+              <p>Supply chain, category management, e-commerce, marketing analytics, and financial performance etc.. &mdash; across different size companies</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🎯</div>
+            <div>
+              <strong>Business Requirement Focus</strong>
+              <p>I run stakeholder interviews, translate business problems into data specs, and deliver outputs that answer what was actually asked &mdash; not what was easiest to build.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-tag">What I Help With</div>
+        <h2>Data solutions built for business impact</h2>
+      </div>
+      <p class="section-desc">Practical analytics work for teams that need clear visibility on their data &mdash; without months of implementation.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Performance Dashboards</h3>
+        <p>End-to-end dashboard builds in Power BI, Tableau, Metabase, Looker, Excel &mdash; designed around your KPIs and built for daily use by real stakeholders, not just analysts.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔄</div>
+        <h3>Reporting Automation</h3>
+        <p>Replacing manual, time-consuming report generation with automatation with tools like Python, Power Query. Sent across any communication platform like mail, slack etc...</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🗄️</div>
+        <h3>SQL Analysis &amp; Data Modeling</h3>
+        <p>Querying, joining, and structuring data from multiple sources to build clean, analysis-ready datasets and reporting layers.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>KPI Tracking Systems</h3>
+        <p>Helping teams define the right metrics and what does the numbers mean, build the data infrastructure behind them, and create reliable tracking.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧹</div>
+        <h3>Data Cleaning &amp; Transformation</h3>
+        <p>Fixing messy, inconsistent, or fragmented data &mdash; building transformation logic that produces clean, trustworthy outputs every time.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3>Business Insights &amp; Analysis</h3>
+        <p>Deep-dive analysis to answer specific business questions &mdash; market performance, trend analysis, cohort breakdowns, Segmentation, Product Funneling & Conversion Rates and decision support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-inner">
+    <div class="portfolio-header">
+      <div class="section-tag">Portfolio &amp; Case Studies</div>
+      <h2>Projects that moved the needle</h2>
+      <p class="section-desc" style="margin-top:0.5rem;">Each project is a real business problem, a structured solution, and a measurable outcome.</p>
+    </div>
+
+    <div class="case-studies">
+
+      <!-- Case 1 -->
+      <div class="case-card">
+        <div class="case-header">
+          <div>
+            <div class="case-number">01</div>
+          </div>
+          <div class="case-badge">AI + Analytics</div>
+        </div>
+        <div class="case-body">
+          <h3>Instant Quotation Pricing Model &mdash; Rawmart</h3>
+          <p class="case-sub">Building an NLP + ML model from scratch on data collection till serving to automate product pricing and reduce a manual, time-intensive process by ~60% of daily received products to price</p>
+          <div class="case-grid">
+            <div class="case-detail">
+              <label>Business Problem</label>
+              <p>Pricing incoming product requests was a slow, repeatitive manual process. The team had to look up product names and prices across scattered sources, creating bottlenecks and inconsistencies. And business wanted to increase the daily capacity of receieved products</p>
+            </div>
+            <div class="case-detail">
+              <label>Data Sources</label>
+              <p>Internal product catalog, historical transaction pricing data, supplier records, structured product input sheets, quottations from different sources like Images, PDFs and Sheets</p>
+            </div>
+            <div class="case-detail">
+              <label>Solution Built</label>
+              <p>automatic model data feeding from different sources and NLP + ML model to understand and match product names and fetch prices automatically. Built a Vector Database (Pinecone), deployed via Python Flask API on AWS RDS, with GPT API integration for classification tasks.</p>
+            </div>
+            <div class="case-detail">
+              <label>Audience</label>
+              <p>Sales, supply & operations teams handling inbound quotation requests daily.</p>
+            </div>
+          </div>
+          <div class="case-impact">
+            <div class="impact-icon">📌</div>
+            <div>
+              <h4>Business Impact</h4>
+              <p>Pricing process time reduced by approximately 60%. The model went from concept to production deployment &mdash; handling real quotation requests in-house and eliminating the manual lookup bottleneck.</p>
+            </div>
+          </div>
+          <div class="tools-row">
+            <span class="tool-chip">Python</span>
+            <span class="tool-chip">NLP (spaCy, NLTK)</span>
+            <span class="tool-chip">Vector Databases</span>
+            <span class="tool-chip">LLM API</span>
+            <span class="tool-chip">AWS RDS</span>
+            <span class="tool-chip">Hugging Face</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-card">
+        <div class="case-header">
+          <div>
+            <div class="case-number">02</div>
+          </div>
+          <div class="case-badge">Dashboard Build</div>
+        </div>
+        <div class="case-body">
+          <h3>Executive Supply Chain Dashboards &mdash; L'Oréal Egypt</h3>
+          <p class="case-sub">ETL pipeline + 4 live Power BI dashboards for the outbound transportation team, replacing manual daily Excel entries</p>
+          <div class="case-grid">
+            <div class="case-detail">
+              <label>Business Problem</label>
+              <p>The outbound transportation team tracked daily shipment operations in a master Excel worksheet filled with manual entries &mdash; time-consuming, error-prone, and offering no real-time visibility.</p>
+            </div>
+            <div class="case-detail">
+              <label>Data Sources</label>
+              <p>Daily operations master worksheet, shipment records, customer data, port records across multiple Excel sources.</p>
+            </div>
+            <div class="case-detail">
+              <label>Solution Built</label>
+              <p>Cleaned and transformed master worksheet data, automated manual entry formulas, built a data pipeline across multiple Excel sheets, then developed 4 live Power BI dashboards covering lead times, delays, capacity monitoring, and customer/port performance.</p>
+            </div>
+            <div class="case-detail">
+              <label>Audience</label>
+              <p>Supply chain outbound transportation team and Executive management.</p>
+            </div>
+          </div>
+          <div class="case-impact">
+            <div class="impact-icon">📌</div>
+            <div>
+              <h4>Business Impact</h4>
+              <p>First ever data visibility with Four live dashboards delivered with live refresh, eliminating manual tracking time. The team gained first-time real-time visibility into shipment lead times, delay patterns, and capacity utilization &mdash; enabling faster operational decisions.</p>
+            </div>
+          </div>
+          <div class="tools-row">
+            <span class="tool-chip">Power BI</span>
+            <span class="tool-chip">Power Query</span>
+            <span class="tool-chip">Excel</span>
+            <span class="tool-chip">ETL</span>
+            <span class="tool-chip">DAX</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="case-card">
+        <div class="case-header">
+          <div>
+            <div class="case-number">03</div>
+          </div>
+          <div class="case-badge">BI Platform + Automation</div>
+        </div>
+        <div class="case-body">
+          <h3>In-House BI Platform &amp; Automated Reporting Infrastructure &mdash; Rawmart</h3>
+          <p class="case-sub">Building and deploying a full business intelligence platform with SQL-based dashboards, automated data pipelines, and KPI tracking from the ground up</p>
+          <div class="case-grid">
+            <div class="case-detail">
+              <label>Business Problem</label>
+              <p>The startup had no centralized data infrastructure. Reporting was scattered, KPIs weren't consistently tracked, and there was no single source of truth for business performance.</p>
+            </div>
+            <div class="case-detail">
+              <label>Data Sources</label>
+              <p>Transaction database, customer records, order data, financial data, online sales funnel events etc.. &mdash; modeled into analytical layer.</p>
+            </div>
+            <div class="case-detail">
+              <label>Solution Built</label>
+              <p>Built the startup's entire analytical layer, deployed Metabase as the in-house BI platform, and delivered dashboards covering all business teams Sales, Supply & Demand, Marketing, Product & Tech, Executives & Strategy</p>
+            </div>
+            <div class="case-detail">
+              <label>Audience</label>
+              <p>Founders, leads, operations team, sales and marketing leads, and finance.</p>
+            </div>
+          </div>
+          <div class="case-impact">
+            <div class="impact-icon">📌</div>
+            <div>
+              <h4>Business Impact</h4>
+              <p>The startup went from zero data visibility to a fully operational BI platform. Daily, weekly, and monthly reports ran automatically. Stakeholders across functions had consistent, reliable KPI tracking for the first time &mdash; directly supporting funding and operations planning decisions.</p>
+            </div>
+          </div>
+          <div class="tools-row">
+            <span class="tool-chip">Metabase</span>
+            <span class="tool-chip">SQL (MySQL)</span>
+            <span class="tool-chip">Python</span>
+            <span class="tool-chip">AWS RDS</span>
+            <span class="tool-chip">Spreadsheets</span>
+            <span class="tool-chip">Google AppScript</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-tag">Experience</div>
+    <h2>Where I've built &amp; delivered</h2>
+    <div class="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Apr 2025 &mdash; Present</div>
+          <div class="exp-org">Floward</div>
+        </div>
+        <div class="exp-divider"><div class="exp-dot"></div><div class="exp-line"></div></div>
+        <div class="exp-content">
+          <h3>Data Analyst</h3>
+          <p>Owning analytics across multiple high-priority domains &mdash; supply chain, warehouse management, category &amp; product ops. Working directly with C-Level and department managers on investigative analysis and data-driven decision support.</p>
+          <ul class="exp-achievements">
+            <li>Conducting investigative analysis for C-Level and department leads across multiple business functions</li>
+            <li>Owning supply chain, warehouse, category &amp; product ops analytics domains end-to-end</li>
+            <li>Applying ETL processes to serve analytics requests and ad-hoc business needs</li>
+            <li>Managing multi-stakeholder projects from business requirement gathering through to delivery</li>
+            <li>Doing diagnostic and investigative Analysis in Ocassions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Oct 2023 &mdash; Apr 2025</div>
+          <div class="exp-org">Rawmart</div>
+        </div>
+        <div class="exp-divider"><div class="exp-dot"></div><div class="exp-line"></div></div>
+        <div class="exp-content">
+          <h3>Data Science &amp; Analytics Engineer</h3>
+          <p>Core data hire at an early-stage B2B startup. Built the entire data infrastructure from scratch &mdash; data model, BI platform, ETL pipelines &mdash; while also developing AI/ML models in production.</p>
+          <ul class="exp-achievements">
+            <li>Built and deployed an NLP + ML instant pricing model &mdash; reduced pricing process time by ~90%</li>
+            <li>Designed startup's full analytical layer</li>
+            <li>Deployed in-house BI platform (Metabase) with dashboards, automated reports, and KPI tracking</li>
+            <li>Delivered analyses across margin thresholds, customer segmentation, online funnel conversion, annual targets and more</li>
+            <li>Built a Python Selenium WhatsApp automation app for in-house CRM outreach</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Jul 2024 &mdash; Sep 2024</div>
+          <div class="exp-org">L'Oréal Egypt</div>
+        </div>
+        <div class="exp-divider"><div class="exp-dot"></div><div class="exp-line"></div></div>
+        <div class="exp-content">
+          <h3>Data Analyst Intern </h3>
+          <p>Embedded with the outbound transportation team to improve operational visibility and reduce manual reporting overhead through dashboards and automation.</p>
+          <ul class="exp-achievements">
+            <li>Developed 4 live Power BI dashboards covering shipment lead times, delays, capacity, and customer/port performance</li>
+            <li>Built ETL pipeline across multiple Excel data sources using Power BI and Power Query</li>
+            <li>Automated daily manual Excel entries with formula-based logic to reduce operational time</li>
+            <li>Presented a proposal on ML &amp; AI integration for supply chain use cases including delay prediction and demand forecasting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Jul 2022 &mdash; Aug 2022</div>
+          <div class="exp-org">Seoudi Supermarket</div>
+        </div>
+        <div class="exp-divider"><div class="exp-dot"></div><div class="exp-line"></div></div>
+        <div class="exp-content">
+          <h3>Data Science Intern</h3>
+          <p>Worked within the e-commerce and data science team on operational analysis and customer retention initiatives for a dark store model.</p>
+          <ul class="exp-achievements">
+            <li>Analysed dark store operations and proposed data-driven process improvements</li>
+            <li>Contributed to customer retention and legacy points project</li>
+            <li>Supported the product team on website and app launch, focusing on data capture for future ML use</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-tag">Client Feedback</div>
+    <h2>What clients say</h2>
+    <p class="section-desc" style="margin-top:0.5rem;">Verified feedback from freelance engagements on Upwork.</p>
+
+    <div class="testimonials-grid" style="margin-top:2.5rem;">
+
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="12" fill="#14a800"/><path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Verified on Upwork
+          </div>
+        </div>
+        <div class="testi-body">
+          <p class="testi-project">"On-Call Data Analyst"</p>
+          <p class="testi-desc">Delivered a data dashboard and a structured presentation from a raw dataset — translating unprocessed data into clear visual outputs ready for business use.</p>
+        </div>
+        <div class="testi-footer">
+          <div class="testi-avatar">G</div>
+          <div>
+            <div class="testi-name">George</div>
+            <div class="testi-role">Upwork Client &mdash; 5.0 / 5.0</div>
+            <div class="testi-country">🇺🇸 United States</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="testi-note">More freelance work available on request. Currently open to new project-based engagements.</p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-tag">Skills &amp; Tools</div>
+    <h2>The stack I used in previous work</h2>
+    <p>The Stack i work with is flexible and adaptable to your stack!</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Analytics &amp; BI</h4>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-dot"></span><strong>Power BI</strong> &mdash; DAX, modeling</div>
+          <div class="skill-item"><span class="skill-dot"></span><strong>Metabase</strong> &mdash; deploy &amp; build</div>
+          <div class="skill-item"><span class="skill-dot"></span><strong>Tableau</strong></div>
+          <div class="skill-item"><span class="skill-dot"></span><strong>SQL</strong></div>
+          <div class="skill-item"><span class="skill-dot"></span>Excel &amp; Google Sheets</div>
+          <div class="skill-item"><span class="skill-dot"></span>Statistical analysis</div>
+          <div class="skill-item"><span class="skill-dot"></span>Google Looker</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Data Engineering</h4>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-dot"></span><strong>Data modeling</strong></div>
+          <div class="skill-item"><span class="skill-dot"></span>ETL pipelines</div>
+          <div class="skill-item"><span class="skill-dot"></span>Airflow orchestration</div>
+          <div class="skill-item"><span class="skill-dot"></span>AWS &amp; GCP</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Automation</h4>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-dot"></span><strong>Python</strong></div>
+          <div class="skill-item"><span class="skill-dot"></span>Flask API development</div>
+          <div class="skill-item"><span class="skill-dot"></span>Web scraping &amp; Selenium</div>
+          <div class="skill-item"><span class="skill-dot"></span>Google AppScript</div>
+          <div class="skill-item"><span class="skill-dot"></span>Power Query </div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>AI &amp; Machine Learning</h4>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-dot"></span><strong>NLP</strong> (spaCy, NLTK, Gensim)</div>
+          <div class="skill-item"><span class="skill-dot"></span>Python Scikit-Learn (ML models)</div>
+          <div class="skill-item"><span class="skill-dot"></span>LLMs</div>
+          <div class="skill-item"><span class="skill-dot"></span>Vector Databases</div>
+          <div class="skill-item"><span class="skill-dot"></span>Hugging Face</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK WITH ME -->
+<section id="work-with-me">
+  <div class="section-inner">
+    <div class="wwm-grid">
+      <div>
+        <div class="section-tag">Work With Me</div>
+        <h2>Let's build something useful with your data</h2>
+        <p class="wwm-desc">I help teams turn scattered data into clear dashboards, automated reports, and decision-ready insights. Whether it's a one-off project or ongoing analytics support &mdash; I work in focused, practical engagements.</p>
+        <div class="engagement-types">
+          <div class="engagement-item">
+            <h4>📊 Dashboard Build</h4>
+            <p>From scoping to delivered dashboard &mdash; Power BI or Excel, designed for your team's daily use.</p>
+          </div>
+          <div class="engagement-item">
+            <h4>🔄 Reporting Automation</h4>
+            <p>Audit your current manual reports, then automate them using Python, Power Query, or scheduled pipelines.</p>
+          </div>
+          <div class="engagement-item">
+            <h4>🗄️ Data Analysis</h4>
+            <p>Answer specific business questions with structured SQL analysis and clean, presentation-ready outputs.</p>
+          </div>
+          <div class="engagement-item">
+            <h4>📐 Analytics Setup</h4>
+            <p>Help early-stage teams establish KPIs, data models, and reporting infrastructure from scratch.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wwm-form">
+        <h3>Start a conversation</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" placeholder="Company / Team">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>What do you need help with?</label>
+          <select>
+            <option value="" disabled selected>Select a service</option>
+            <option>Performance Dashboard</option>
+            <option>Reporting Automation</option>
+            <option>Answering business Question - Analysis</option>
+            <option>KPI Setup</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Brief Description</label>
+          <textarea placeholder="What's the business problem you're trying to solve?"></textarea>
+        </div>
+        <button class="btn-form">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-tag">Contact</div>
+        <h2>Get in touch</h2>
+        <p class="section-desc" style="margin-top:0.5rem;">Whether you have a specific project in mind or just want to talk through a data challenge &mdash; feel free to reach out directly.</p>
+        <div class="contact-links">
+          <a href="mailto:youssif.h224@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            <div class="contact-link-info">
+              <p>Email</p>
+              <span>youssif.h224@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/youssif-hisham-29b489177" target="_blank" class="contact-link">
+            <div class="contact-link-icon">🔗</div>
+            <div class="contact-link-info">
+              <p>LinkedIn</p>
+              <span>linkedin.com/in/youssif-hisham-29b489177</span>
+            </div>
+          </a>
+          <a href="https://github.com/Youssif22" target="_blank" class="contact-link">
+            <div class="contact-link-icon">💻</div>
+            <div class="contact-link-info">
+              <p>GitHub</p>
+              <span>github.com/Youssif22</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div style="padding-top: 1rem;">
+        <div style="background:var(--white); border:1px solid var(--border); border-radius:16px; padding:2rem;">
+          <p style="font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--grey); margin-bottom:1rem;">Based in Cairo, Egypt</p>
+          <p style="font-size:0.95rem; color:var(--grey); line-height:1.8; margin-bottom:1.5rem;">Available for remote projects globally and in-person work across Egypt and the MENA region. Currently taking on new projects alongside current commitments.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+            <span class="tool-chip">Remote-friendly</span>
+            <span class="tool-chip">World-wide available</span>
+            <span class="tool-chip">English &amp; Arabic</span>
+            <span class="tool-chip">Freelance & Project-based</span>
+          </div>
+          <div style="margin-top:1.75rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+            <p style="font-size:0.8rem; color:var(--grey); margin-bottom:0.5rem; font-weight:600;">Response time</p>
+            <p style="font-size:0.875rem; color:var(--black);">Typically within 24&ndash;48 hours on weekdays.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Youssif Hisham &mdash; Built with a focus on data that matters.</span>
+  <div style="display:flex; gap:1.5rem;">
+    <a href="#hero">Back to top ↑</a>
+    <a href="mailto:youssif.h224@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/youssif-hisham-29b489177">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
