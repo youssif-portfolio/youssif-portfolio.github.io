@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Youssif Hisham — Data Analyst & Analytics Engineer</title>
+
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-20K65PWRT5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-20K65PWRT5');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -971,36 +980,58 @@
       </div>
       <div class="wwm-form">
         <h3>Start a conversation</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" placeholder="Your name">
+
+        <!-- Success message (hidden by default) -->
+        <div id="form-success" style="display:none; text-align:center; padding:2rem 1rem;">
+          <div style="font-size:2rem; margin-bottom:0.75rem;">✅</div>
+          <p style="color:#fff; font-weight:600; font-size:1rem; margin-bottom:0.4rem;">Message sent successfully!</p>
+          <p style="color:rgba(255,255,255,0.55); font-size:0.85rem;">I'll get back to you within 24–48 hours.</p>
+        </div>
+
+        <!-- Error message (hidden by default) -->
+        <div id="form-error" style="display:none; background:rgba(220,50,50,0.15); border:1px solid rgba(220,50,50,0.3); border-radius:8px; padding:1rem; margin-bottom:1rem;">
+          <p style="color:#ff6b6b; font-size:0.85rem;">Something went wrong. Please try again or email me directly at youssif.h224@gmail.com</p>
+        </div>
+
+        <form id="contact-form">
+          <!-- Web3Forms access key (hidden) -->
+          <input type="hidden" name="access_key" value="b4774d09-dbbf-46f4-9a10-1fd28659369d">
+          <input type="hidden" name="subject" value="New Portfolio Enquiry — Youssif Hisham">
+          <input type="hidden" name="from_name" value="Portfolio Website">
+          <!-- Honeypot spam protection -->
+          <input type="checkbox" name="botcheck" style="display:none;">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Company</label>
+              <input type="text" name="company" placeholder="Company / Team">
+            </div>
           </div>
           <div class="form-group">
-            <label>Company</label>
-            <input type="text" placeholder="Company / Team">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="your@email.com" required>
           </div>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label>What do you need help with?</label>
-          <select>
-            <option value="" disabled selected>Select a service</option>
-            <option>Performance Dashboard</option>
-            <option>Reporting Automation</option>
-            <option>Answering business Question - Analysis</option>
-            <option>KPI Setup</option>
-            <option>Something else</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Brief Description</label>
-          <textarea placeholder="What's the business problem you're trying to solve?"></textarea>
-        </div>
-        <button class="btn-form">Send Message →</button>
+          <div class="form-group">
+            <label>What do you need help with?</label>
+            <select name="service">
+              <option value="" disabled selected>Select a service</option>
+              <option>Performance Dashboard</option>
+              <option>Reporting Automation</option>
+              <option>Answering business Question - Analysis</option>
+              <option>KPI Setup</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Brief Description</label>
+            <textarea name="message" placeholder="What's the business problem you're trying to solve?"></textarea>
+          </div>
+          <button type="submit" class="btn-form" id="submit-btn">Send Message →</button>
+        </form>
       </div>
     </div>
   </div>
@@ -1067,6 +1098,57 @@
     <a href="https://linkedin.com/in/youssif-hisham-29b489177">LinkedIn</a>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Button loading state
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    errorMsg.style.display = 'none';
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Fire GA4 conversion event
+        gtag('event', 'generate_lead', {
+          event_category: 'Contact Form',
+          event_label: 'Send Message — Work With Me',
+        });
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      } else {
+        errorMsg.style.display = 'block';
+        submitBtn.textContent = 'Send Message →';
+        submitBtn.disabled = false;
+      }
+    } catch (error) {
+      errorMsg.style.display = 'block';
+      submitBtn.textContent = 'Send Message →';
+      submitBtn.disabled = false;
+    }
+  });
+</script>
 
 </body>
 </html>
